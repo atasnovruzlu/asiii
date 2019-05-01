@@ -88,7 +88,7 @@ function getALlEmployers(){
         if (this.status == 200) {
             const employees = JSON.parse(this.responseText);
             employees.forEach(element => {
-                list.innerHTML += `
+                list.innerHTML  += `
                 <tr>
                 <td>${element.id}</td>
                 <td>${element.title}</td>
