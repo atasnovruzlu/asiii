@@ -93,7 +93,8 @@ function getALlEmployers(){
                 <td>${element.id}</td>
                 <td>${element.title}</td>
                 <td>${element.completed}</td>
-                <td><button onclick=SilBtn(); class="sil btn btn-info pl-4 pr-4 pt-2 pb-2">sil</button></td>
+                <td><button class="sil btn btn-danger pl-4 pr-4 pt-2 pb-2">sil</button></td>
+                <td><button class="edit btn btn-info pl-4 pr-4 pt-2 pb-2">edit</button></td>
 
                 </tr>
                 `
@@ -103,7 +104,16 @@ function getALlEmployers(){
     xhr.open("GET","https://jsonplaceholder.typicode.com/todos",true);
 
 
-
+document.querySelector("#empl").addEventListener("click",function(e){
+    if(e.target.className == "sil btn btn-danger pl-4 pr-4 pt-2 pb-2"){
+         e.target.parentElement.parentElement.style.display = "none";
+    }
+});
+document.querySelector("#empl").addEventListener("click",function(e){
+    if(e.target.className == "edit btn btn-info pl-4 pr-4 pt-2 pb-2"){
+         e.target.parentElement.parentElement.style.display = "none";
+    }
+});
     xhr.send();
 }
 
