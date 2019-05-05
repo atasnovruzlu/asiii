@@ -71,19 +71,100 @@ class Request {
             if (this.xhr.status === 200) {
                 callback(null, this.xhr.responseText);
             } else {
-                callback("Hata oldu!!!",null)
+                callback("Hata oldu!!!", null)
             }
         }
         this.xhr.send();
     }
+    // POST request
+
+    post(url, data, callback) {
+        this.xhr.open("POST", url);
+        this.xhr.setRequestHeader("Content-type", "application/json"); //JSON melumati
+        this.xhr.onload = ()=>{
+            if(this.xhr.status ===201){
+                    // console.log("post basarili");
+                    callback(null,this.xhr.responseText);
+            }
+            else{
+                callback("Hata oldu",null)
+            }
+        }
+        this.xhr.send(JSON.stringify(data));
+
+    }
+
+
+    // PUT
+
+    put(url, data, callback) {
+        this.xhr.open("PUT", url);
+        this.xhr.setRequestHeader("Content-type", "application/json"); //JSON melumati
+        this.xhr.onload = ()=>{
+            if(this.xhr.status ===200){
+                    // console.log("post basarili");
+                    callback(null,this.xhr.responseText);
+            }
+            else{
+                callback("Hata oldu",null)
+            }
+        }
+        this.xhr.send(JSON.stringify(data));
+
+    }
+
+    // Delete
+
+    delete(url, callback) {
+        this.xhr.open("DELETE", url); //Elaqe aciq
+
+        this.xhr.onload = () => {
+            if (this.xhr.status === 200) {
+                callback(null, this.xhr.responseText);
+            } else {
+                callback("Hata oldu!!!", null)
+            }
+        }
+        this.xhr.send();
+    }
+
+
+
+
+
 }
 const request = new Request();
-request.get("https://jsonplaceholder.typicode.com/albums", function (err, response) {
+// request.get("https://jsonplaceholder.typicode.com/albums", function (err, response) {
 
 
-    if (err === null) {
-        console.log(response);
-    } else {
-        console.log(err)
+//     if (err === null) {
+//         console.log(response);
+//     } else {
+//         console.log(err)
+//     }
+// });
+request.post("https://jsonplaceholder.typicode.com/albums",{userId:2,title:"Asiman oglan deyil"},function(err,album){
+    if(err ===null){
+        console.log(album);
     }
-});
+    else{
+        console.log("Hata oldu!!!!");
+    }
+})
+
+request.put("https://jsonplaceholder.typicode.com/albums/10",{userId:143,title:"Asiman oglan oldu"},function(err,album){
+    if(err ===null){
+        console.log(album);
+    }
+    else{
+        console.log("Hata oldu!!!!");
+    }
+})
+request.delete("https://jsonplaceholder.typicode.com/albums/10" ,function(err,album){
+    if(err ===null){
+        console.log(album);
+    }
+    else{
+        console.log("Hata oldu!!!!");
+    }
+})
