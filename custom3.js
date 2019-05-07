@@ -100,7 +100,7 @@ class Request {
     put(url, data, callback) {
         this.xhr.open("PUT", url);
         this.xhr.setRequestHeader("Content-type", "application/json"); //JSON melumati
-        this.xhr.onload = ()=>{
+        this.xhr.onload = () => {
             if(this.xhr.status ===200){
                     // console.log("post basarili");
                     callback(null,this.xhr.responseText);
