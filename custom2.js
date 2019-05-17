@@ -19,6 +19,7 @@ document.querySelector("#change").addEventListener("click", function () {
             document.querySelector("#usd").value = result2;
             console.log(amount, usd);
 
+            
         }
 
     }

@@ -1,3 +1,4 @@
+
 document.querySelector(".start").addEventListener("click", () => {
     let i = 0;
     let setInter = setInterval(() => {

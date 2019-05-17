@@ -33,7 +33,7 @@
 // let response = await promise;
 // console.log(response);
 // console.log("Naber");
- 
+
 // }
 // test("Merhaba")
 
@@ -71,3 +71,44 @@
 
 // PROMISE and FETCH
 
+// function getData(data) {
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             if(typeof data === "string"){
+//                 resolve(data)
+//             }
+
+//             else{
+//                 reject(data);
+//             }
+
+//             // reject("Olumlu deyil");
+
+//         }, 3000);
+//     })
+// }
+// getData("Asiman").then((response)=>{
+//     console.log("Olumlu sonuc ",response)
+// }).catch((err)=>{
+//     console.error("Olumsuz sonuc ",err)
+// })
+
+function addTwo(number) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (typeof number === "number") {
+                resolve(number + 2);
+            } else {
+                reject(new Error("Number bir sayi girin!!!"));
+            }
+        }, 3000);
+    })
+}
+
+addTwo("asdf")
+.then(function(response){
+    console.log(response);
+    return response + 2;
+}).then(function(response2){
+    console.log(response2)
+}).catch(err => console.error(err))
