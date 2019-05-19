@@ -90,7 +90,7 @@ request.get("https://jsonplaceholder.typicode.com/todos")
 request.post("https://jsonplaceholder.typicode.com/todos", {
     Userid: 11,
     id : 10,
-    name  : "Atash"
+    name  : "asiman"
 }).then(newAlbum => console.log(newAlbum))
 .catch(err => console.log(err)
 )
